@@ -1,20 +1,21 @@
+const path = require('path');
+
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
-const path = require('path');
 
 const PORT = process.env.PORT || 3000;
 
-const app = express();
-const server = http.createServer(app);
+const expressApp = express();
+const httpServer = http.createServer(expressApp);
 
-const io = new Server(server);
+const websocketServer = new Server(httpServer);
 
-app.get('/', (req, res) => {
+expressApp.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/index.html'));
 });
 
-io.on('connection', (socket) => {
+websocketServer.on('connection', (socket) => {
   console.log('a user connected');
 
   socket.on('disconnect', () => {
@@ -24,10 +25,10 @@ io.on('connection', (socket) => {
   socket.on('chat message', (msg) => {
     console.log(`message: ${msg}`);
 
-    io.emit('chat message', msg);
+    websocketServer.emit('chat message', msg);
   });
 });
 
-server.listen(PORT, () => {
+httpServer.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
 });
