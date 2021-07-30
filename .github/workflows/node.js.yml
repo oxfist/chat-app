@@ -26,8 +26,22 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Login to Heroku
+    - name: Heroku login credentials
+      run: |
+        cat > ~/.netrc <<EOF
+          machine api.heroku.com
+            login $HEROKU_EMAIL
+            password $HEROKU_API_KEY
+          machine git.heroku.com
+            login $HEROKU_EMAIL
+            password $HEROKU_API_KEY
+        EOF
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
+    - name: Add Heroku remote
+      run: heroku git:remote --app $HEROKU_APP_NAME
+      env:
         HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-      run: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git main
+    - name: Push to Heroku
+      run: git push heroku main
