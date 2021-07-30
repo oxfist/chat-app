@@ -11,6 +11,8 @@ const httpServer = http.createServer(expressApp);
 
 const websocketServer = new Server(httpServer);
 
+expressApp.use(express.static(`${__dirname}/../public/assets/styles`));
+
 expressApp.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/index.html'));
 });

@@ -1,0 +1,10 @@
+#mainContainer {
+  display: grid;
+  grid-template-rows: 8fr 1fr;
+  height: 96vh;
+}
+
+#chatMessagesArea {
+  max-height: 86vh;
+  overflow: scroll;
+}
