@@ -24,10 +24,11 @@ websocketServer.on('connection', (socket) => {
     console.log('user disconnected');
   });
 
-  socket.on('chat message', (msg) => {
-    console.log(`message: ${msg}`);
+  socket.on('chat message', (chatMessage) => {
+    console.log(`message: ${chatMessage.message} on
+      ${chatMessage.timestamp} by client ${chatMessage.clientId}`);
 
-    websocketServer.emit('chat message', msg);
+    websocketServer.emit('chat message', chatMessage);
   });
 });
 

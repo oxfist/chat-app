@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
-    <title>Socket.IO chat</title>
+    <title>Chat App</title>
   </head>
   <body>
     <div id="mainContainer">
@@ -22,6 +22,38 @@
     <script>
       const socket = io();
 
+      const formatDate = (timestampString) => {
+        const dateFormatOptions = {
+          hour: 'numeric',
+          minute: 'numeric',
+          hour12: true
+        };
+
+        const chatDate = new Date(timestampString);
+
+        const todayOrDate = checkIfToday(chatDate);
+        const timeIn12HourFormat = chatDate.toLocaleString('en-US', dateFormatOptions);
+
+        return `${todayOrDate} ${timeIn12HourFormat}`;
+      }
+
+      const checkIfToday = (date) => {
+        const now = new Date();
+        if (sameYearMonthDay(now, date)) {
+          return 'hoy';
+        } else if (date < now) {
+          return date.toLocaleDateString('es-CL');
+        }
+      };
+
+      const sameYearMonthDay = (firstDate, secondDate) => {
+        const sameYear = firstDate.getYear() === secondDate.getYear();
+        const sameMonth = firstDate.getMonth() === secondDate.getMonth();
+        const sameDay = firstDate.getDay() === secondDate.getDay();
+
+        return sameYear && sameMonth && sameDay;
+      }
+
       const messages = document.getElementById('messages');
       const messagesArea = document.getElementById('chatMessagesArea');
       const form = document.getElementById('form');
@@ -30,17 +62,24 @@
       form.addEventListener('submit', function(e) {
         e.preventDefault();
 
+        const chatMessage = {
+          message: input.value,
+          timestamp: new Date(),
+          clientId: socket.id,
+        };
+
         if (input.value) {
-          socket.emit('chat message', input.value);
+          socket.emit('chat message', chatMessage);
           input.value = '';
         }
       });
 
-      socket.on('chat message', (msg) => {
-        const chatMessage = document.createElement('li');
+      socket.on('chat message', (chatMessage) => {
+        const chatMessageLi = document.createElement('li');
+        const formattedDate = formatDate(chatMessage.timestamp);
 
-        chatMessage.textContent = msg;
-        messages.appendChild(chatMessage);
+        chatMessageLi.innerHTML = `<span class="chatClientId">${chatMessage.clientId}</span> ${formattedDate}: ${chatMessage.message}`;
+        messages.appendChild(chatMessageLi);
         messagesArea.scrollTop = messagesArea.scrollHeight;
       });
     </script>
