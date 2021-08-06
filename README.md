@@ -65,6 +65,8 @@ Así como con GitHub Pages y Firebase, para lograr que el código que tenemos en
 
 Como seres humanos, tenemos una gran habilidad para realizar tareas “difusas”, que requieren pensamiento creativo, pero si la tarea es simplemente realizar y marcar acciones de una lista, bueno, ahí no nos va tan bien. Afortunadamente ya se ha vuelto un estándar de la industria (al menos las partes más avanzadas), la utilización de herramientas que nos permiten ejecutar todos estos pasos de forma automática a través de un _pipeline_ de “Integración Continua”. Un _pipeline_ es simplemente una “línea de producción”, un proceso que automatizamos para nuestra aplicación, un canal por donde pasa nuestro código cumpliendo distintas etapas, las que van acercando cada vez más nuestro trabajo a “producción”. Por ejemplo, podríamos tomar nuestro código, correr las pruebas y solo si todas pasaron con éxito entonces podríamos desplegar a alguna plataforma (Firbase, Heroku, etc.).
 
+![Diagrama de pipeline de Integración Continua](./ci-pipeline.png)
+
 Este proyecto contempla la construcción de un _pipeline_ de Integración Continua para ejecutar todos los pasos previos al despliegue y también el despliegue mismo. Para esto utilizarás [GitHub Actions](https://github.com/features/actions).
 
 ### Estructura de archivos
