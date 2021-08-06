@@ -56,6 +56,8 @@ Los WebSockets son una avanzada tecnología que permiten abrir una comunicación
 
 La librería [Socket.io](https://socket.io) permite implementar conexiones de este tipo sin tener que hacer muchas cosas manualmente, lo que es bueno porque si te familiarizas con ella podrás agregar esta comunicación a tu aplicación sin muchas demoras y enfocarte en las partes más importantes de tu proyecto.
 
+![Diagrama de comunicación bidireccional cliente-servidor](./bidirectional-communication.png)
+
 ### 4.4 Heroku y Postgres
 
 Heroku es una plataforma similar a Firebase. Ambas pertenecen a la categoría llamada “Plataforma como Servicio”, en inglés _Platform-as-a-Service_ (PaaS), las que permiten alojar aplicaciones para que cualquier persona pueda ver nuestro trabajo directamente por Internet, sin necesidad de acceder a nuestro entorno local. Cada proveedor de estas plataformas ofrece distintas funcionalidades para ayudar el desarrollo. En el caso de Heroku, una de las ventajas es la rapidez del proceso, pues detecta automáticamente algunas características de nuestro proyecto y nos evita tener que hacer muchas configuraciones de forma manual. Es posible tener una aplicación corriendo en Heroku ¡en menos de 5 minutos!
