@@ -78,7 +78,7 @@ Como seres humanos, tenemos una gran habilidad para realizar tareas “difusas�
 
 Este proyecto contempla la construcción de un _pipeline_ de Integración Continua para ejecutar todos los pasos previos al despliegue y también el despliegue mismo. Para esto utilizarás [GitHub Actions](https://github.com/features/actions).
 
-### Estructura de archivos
+### 4.6 Estructura de archivos
 
 El _boilerplate_ contiene una estructura de archivos como punto de partida:
 
@@ -92,12 +92,6 @@ El _boilerplate_ contiene una estructura de archivos como punto de partida:
 ├── html
 └── php-playground
 ```
-
-#### `apache2`
-
-#### `html`
-
-#### `php-playground`
 
 ## 5. Criterios de aceptación mínimos del proyecto
 
@@ -121,10 +115,6 @@ y _branches_ (_ramas_) de tus componentes.
 ### 6.1 Historias de Usuaria
 
 ### 6.2 Comunicación en tiempo real con Socket.io
-
-### Aprender PHP
-
-### Desarrollar un WordPress Plugin
 
 ### Otros recursos
 
