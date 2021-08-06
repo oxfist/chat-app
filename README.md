@@ -15,6 +15,14 @@
 
 ## 2. Resumen del proyecto
 
+En este proyecto te proponemos la creación de una aplicación de mensajería instantánea. Esta aplicación requerirá que las personas puedan registrarse e iniciar sesión para poder enviar mensajes a un canal de chat público y también la creación de canales temáticos donde cada persona podrá ingresar por su cuenta.
+
+Para acercar este proyecto lo más posible a entornos profesionales le daremos gran importancia al desarrollo a través de Historias de Usuaria para definir alcance y prioridad de las funcionalidades que desarrollarás. Para esto te ayudaremos como coaches jugando el rol de _Product Owner_. Tendrás una base de historias para partir y en el proceso tendrás que seguir escribiendo tus propias historias.
+
+Para desarrollar las funcionalidades de un chat ocuparás la librería Socket.io, que te permitirá implementar _web sockets_ para mantener conexiones abiertas entre las personas que estén dentro del chat y el “servidor” que centralizará la comunicación, recibiendo los mensajes y enviándolos de nuevo a los “clientes”.
+
+Alojarás esta aplicación en la plataforma Heroku y construirás tu propio _pipeline_ de Integración Continua y Despliegue Continuo (CI/CD) para automatizar el despliegue que hará que tu proyecto esté disponible a través de Internet para cualquier persona. Para almacenar los datos ocuparás la base de datos PostgreSQL en su versión nativa provista por Heroku.
+
 ## 3. Objetivos de aprendizaje
 
 > ℹ️ Esta sección será automáticamente generada en el idioma pertinente, a partir
