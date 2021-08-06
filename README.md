@@ -21,7 +21,7 @@ Para acercar este proyecto lo más posible a entornos profesionales le daremos g
 
 Para desarrollar las funcionalidades de un chat ocuparás la librería [Socket.io](https://socket.io), que te permitirá implementar _web sockets_ para mantener conexiones abiertas entre las personas que estén dentro del chat y el “servidor” que centralizará la comunicación, recibiendo los mensajes y enviándolos de nuevo a los “clientes”.
 
-Alojarás esta aplicación en la plataforma Heroku y construirás tu propio _pipeline_ de Integración Continua y Despliegue Continuo (CI/CD) para automatizar el despliegue que hará que tu proyecto esté disponible a través de Internet para cualquier persona. Para almacenar los datos ocuparás la base de datos PostgreSQL en su versión nativa provista por Heroku.
+Alojarás esta aplicación en la plataforma Heroku y construirás con [GitHub Actions](https://github.com/features/actions) tu propio _pipeline_ de Integración Continua y Despliegue Continuo (CI/CD) para automatizar el despliegue que hará que tu proyecto esté disponible a través de Internet para cualquier persona. Para almacenar los datos ocuparás la base de datos PostgreSQL en la versión que provee nativamente Heroku.
 
 ## 3. Objetivos de aprendizaje
 
