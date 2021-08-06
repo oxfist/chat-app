@@ -19,7 +19,7 @@ En este proyecto te proponemos la creación de una aplicación de mensajería in
 
 Para acercar este proyecto lo más posible a entornos profesionales le daremos gran importancia al desarrollo a través de Historias de Usuaria para definir alcance y prioridad de las funcionalidades que desarrollarás. Para esto te ayudaremos como coaches jugando el rol de _Product Owner_. Tendrás una base de historias para partir y en el proceso tendrás que seguir escribiendo tus propias historias.
 
-Para desarrollar las funcionalidades de un chat ocuparás la librería Socket.io, que te permitirá implementar _web sockets_ para mantener conexiones abiertas entre las personas que estén dentro del chat y el “servidor” que centralizará la comunicación, recibiendo los mensajes y enviándolos de nuevo a los “clientes”.
+Para desarrollar las funcionalidades de un chat ocuparás la librería [Socket.io](socket.io), que te permitirá implementar _web sockets_ para mantener conexiones abiertas entre las personas que estén dentro del chat y el “servidor” que centralizará la comunicación, recibiendo los mensajes y enviándolos de nuevo a los “clientes”.
 
 Alojarás esta aplicación en la plataforma Heroku y construirás tu propio _pipeline_ de Integración Continua y Despliegue Continuo (CI/CD) para automatizar el despliegue que hará que tu proyecto esté disponible a través de Internet para cualquier persona. Para almacenar los datos ocuparás la base de datos PostgreSQL en su versión nativa provista por Heroku.
 
@@ -52,8 +52,9 @@ Alojarás esta aplicación en la plataforma Heroku y construirás tu propio _pip
 
 ### 4.3 WebSockets
 
-> 1. Mencionar qué tipo de comunicación permiten, hacer paralelo con recargas de páginas y “navegación tradicional”
-> 1. Mencionar Socket.io para implementar la comunicación
+Los WebSockets son una avanzada tecnología que permiten abrir una comunicación interactiva bidireccional entre el navegador de un “cliente” y un “servidor”. Con este tipo de conexiones es posible chatear con personas a través de la web, lo que no es posible con las conexiones tradicionales. Imaginemos una aplicación que requiere que recarguemos manualmente la página cada vez que queramos ver los mensajes nuevos, no sería ni muy instantánea ni muy útil. Con WebSockets, cargaremos la página una vez y la conexión quedará abierta para que simplemente recibamos los mensajes de otras personas manejando _eventos_.
+
+La librería [Socket.io](socket.io) permite implementar conexiones de este tipo sin tener que hacer muchas cosas manualmente, lo que es bueno porque si te familiarizas con ella podrás agregar esta comunicación a tu aplicación sin muchas demoras y enfocarte en las partes más importantes de tu proyecto.
 
 ### 4.4 Heroku y Postgres
 
