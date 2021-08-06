@@ -2,14 +2,14 @@
 
 ## Índice
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
-* [6. Pistas, tips y lecturas complementarias](#6-pistas-tips-y-lecturas-complementarias)
+- [1. Preámbulo](#1-preámbulo)
+- [2. Resumen del proyecto](#2-resumen-del-proyecto)
+- [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
+- [4. Consideraciones generales](#4-consideraciones-generales)
+- [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
+- [6. Pistas, tips y lecturas complementarias](#6-pistas-tips-y-lecturas-complementarias)
 
-***
+---
 
 ## 1. Preámbulo
 
@@ -27,14 +27,14 @@
 
 ## 4. Consideraciones generales
 
-### Historias de Usuaria
+### 4.1 Historias de Usuaria
 
 > 1. Descripción general de las historias como herramienta
 > 1. Importancia del enfoque iterativo plasmado en las historias
 > 1. Importancia de segmentar el trabajo en cada historia para que no sean dependientes
 > 1. Mencionar que hay historias que vienen prehechas y el desarrollo del proyecto contempla la creación de nuevas historias
 
-### El rol de _Product Owner_
+### 4.2 El rol de _Product Owner_
 
 > 1. Rol de PO en equipos ágiles en general
 > 1. Mencionar que el rol PO no es "fijo" y sus responsabilidadese no son "exclusivas"
@@ -42,27 +42,30 @@
 > 1. Describir interacción que habrá con coach para cumplir rol de PO
 > 1. Mencionar importancia de negociación de alcance y prioridad
 
-### WebSockets
+### 4.3 WebSockets
 
 > 1. Mencionar qué tipo de comunicación permiten, hacer paralelo con recargas de páginas y “navegación tradicional”
 > 1. Mencionar Socket.io para implementar la comunicación
 
-### El _pipeline_ de Integración Continua
+### 4.4 Heroku y Postgres
 
-### Heroku
+Heroku es una plataforma similar a Firebase. Ambas pertenecen a la categoría llamada “Plataforma como Servicio”, en inglés _Platform-as-a-Service_ (PaaS), las que permiten alojar aplicaciones para que cualquier persona pueda ver nuestro trabajo directamente por Internet, sin necesidad de acceder a nuestro entorno local. Cada proveedor de estas plataformas ofrece distintas funcionalidades para ayudar el desarrollo. En el caso de Heroku, una de las ventajas es la rapidez del proceso, pues detecta automáticamente algunas características de nuestro proyecto y nos evita tener que hacer muchas configuraciones de forma manual. Es posible tener una aplicación corriendo en Heroku ¡en menos de 5 minutos!
 
-Heroku es una plataforma similar a Firebase. Ambas pertenecen a la categoría llamada “Plataforma como Servicio” (Platform-as-a-Service) y permiten alojar aplicaciones para que otras personas puedan verlas fuera de nuestros computadores.
+Este tipo de herramientas son muy importantes actualmente en el desarrollo de aplicaciones, ya sea front-end, back-end o full-stack, puesto que automatizan una de las tareas esenciales del desarrollo de software: el _despliegue_. Le llamamos “desplegar” (hacer _deployment_) al acto de tomar el código de nuestra aplicación y moverlo a uno de estos servicios para que nuestros cambios más actuales queden disponibles para usuarios. Durante el BC muchas veces hicieron esto con `firebase deploy` para desplegar los cambios a Firebase o quizás configurando su repositorio para que el código se viera en [GitHub Pages](https://pages.github.com/).
 
-> 1. Hablar en general de Heroku y cómo se parece y diferencia de Firebase
-> 1. Hablar qué importancia tiene trabajar con herramientas así
-> 1. Mencionar qué partes de Heroku vamos a ocupar (deployments y bases de datos)
+> TODO: Insertar diagrama localhost vs deployment
 
-### Base de datos
+Así como Firebase permitía guardar datos en su base de datos Firestore, Heroku permite conectar de forma nativa con otra base de datos, PostgreSQL (también llamada solo Postgres), una de las más conocidas y utilizadas en la industria. Usualmente configurar bases de datos puede llegar a ser una tarea compleja, especialmente si queremos configurarlas en los entornos de “producción”. Lo bueno es que Heroku simplifica todo este proceso con Postgres entregándonos los beneficios y ahorrándonos hacer muchas configuraciones.
 
-> 1. Conectar con Firestore
-> 1. Mencionar por encima tipos de bases de datos
-> 1. Mencionar por qué es importante trabajar con bases de datos
-> 1. Mencionar qué partes de la base de datos ocuparemos
+Para el desarrollo de este proyecto trabajarás haciendo despliegues a Heroku y ocupando su servicio nativo de Posgres para persistir tus datos.
+
+### 4.5 El _pipeline_ de Integración Continua
+
+Así como con GitHub Pages y Firebase, para lograr que el código que tenemos en nuestra máquina, o los cambios más nuevos que estén en GitHub, puedan estar disponibles para cualquier persona, es necesario desplegar el código, por ejemplo ejecutando `firebase deploy`. A lo largo del desarrollo de una aplicación es muy probable que tengamos que realizar esta tarea muchas veces, incluso varias veces al día. Esto transforma el despliegue en una tarea recurrente que está propensa a errores: puede que nos equivocamos en el comando exacto a ejecutar, quizás nos olvidamos de correr antes las pruebas o verificar algo de forma manual, e incluso puede ocurrir que estemos desplegando a una plataforma que requiera varios pasos adicionales que debamos repetir una y otra vez.
+
+Como seres humanos, tenemos una gran habilidad para realizar tareas “difusas”, que requieren pensamiento creativo, pero si la tarea es simplemente realizar y marcar acciones de una lista, bueno, ahí no nos va tan bien. Afortunadamente ya se ha vuelto un estándar de la industria (al menos las partes más avanzadas), la utilización de herramientas que nos permiten ejecutar todos estos pasos de forma automática a través de un _pipeline_ de “Integración Continua”. Un _pipeline_ es simplemente una “línea de producción”, un proceso que automatizamos para nuestra aplicación, un canal por donde pasa nuestro código cumpliendo distintas etapas, las que van acercando cada vez más nuestro trabajo a “producción”. Por ejemplo, podríamos tomar nuestro código, correr las pruebas y solo si todas pasaron con éxito entonces podríamos desplegar a alguna plataforma (Firbase, Heroku, etc.).
+
+Este proyecto contempla la construcción de un _pipeline_ de Integración Continua para ejecutar todos los pasos previos al despliegue y también el despliegue mismo. Para esto utilizarás [GitHub Actions](https://github.com/features/actions).
 
 ### Estructura de archivos
 
@@ -87,15 +90,15 @@ El _boilerplate_ contiene una estructura de archivos como punto de partida:
 
 ## 5. Criterios de aceptación mínimos del proyecto
 
-### Desarrollo iterativo con Historia de Usuaria
+### 5.1 Desarrollo iterativo con Historia de Usuaria
 
-### Despliegue automatizado con un _pipeline_ de Integración Continua
+### 5.2 Despliegue automatizado con un _pipeline_ de Integración Continua
 
-### Persistencia de datos con una base de datos
+### 5.3 Persistencia de datos con una base de datos
 
-### Modularización del código
+### 5.4 Modularización del código
 
-### Pruebas unitarias
+### 5.5 Pruebas unitarias
 
 Deberás incluir pruebas unitarias para el plugin que desarrolles hasta cubrir
 como mínimo el 70% de _statements_
@@ -104,9 +107,9 @@ y _branches_ (_ramas_) de tus componentes.
 
 ## 6. Pistas, tips y lecturas complementarias
 
-### Historias de Usuaria
+### 6.1 Historias de Usuaria
 
-### Comunicación en tiempo real con Socket.io
+### 6.2 Comunicación en tiempo real con Socket.io
 
 ### Aprender PHP
 
@@ -114,4 +117,4 @@ y _branches_ (_ramas_) de tus componentes.
 
 ### Otros recursos
 
-* [Lorem Ipsum]()
+- [Lorem Ipsum]()
