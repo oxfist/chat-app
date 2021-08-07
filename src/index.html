@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1"
+    />
     <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
     <title>Chat App</title>
   </head>
@@ -22,44 +25,51 @@
     <script>
       const socket = io();
 
-      const formatDate = (timestampString) => {
-        const dateFormatOptions = {
-          hour: 'numeric',
-          minute: 'numeric',
-          hour12: true
-        };
-
-        const chatDate = new Date(timestampString);
-
-        const todayOrDate = checkIfToday(chatDate);
-        const timeIn12HourFormat = chatDate.toLocaleString('en-US', dateFormatOptions);
-
-        return `${todayOrDate} ${timeIn12HourFormat}`;
-      }
-
-      const checkIfToday = (date) => {
-        const now = new Date();
-        if (sameYearMonthDay(now, date)) {
-          return 'hoy';
-        } else if (date < now) {
-          return date.toLocaleDateString('es-CL');
-        }
-      };
-
       const sameYearMonthDay = (firstDate, secondDate) => {
         const sameYear = firstDate.getYear() === secondDate.getYear();
         const sameMonth = firstDate.getMonth() === secondDate.getMonth();
         const sameDay = firstDate.getDay() === secondDate.getDay();
 
         return sameYear && sameMonth && sameDay;
-      }
+      };
+
+      const checkIfToday = (date) => {
+        const now = new Date();
+        let dayString;
+
+        if (sameYearMonthDay(now, date)) {
+          dayString = 'hoy';
+        } else if (date < now) {
+          dayString = date.toLocaleDateString('es-CL');
+        }
+
+        return dayString;
+      };
+
+      const formatDate = (timestampString) => {
+        const dateFormatOptions = {
+          hour: 'numeric',
+          minute: 'numeric',
+          hour12: true,
+        };
+
+        const chatDate = new Date(timestampString);
+
+        const todayOrDate = checkIfToday(chatDate);
+        const timeIn12HourFormat = chatDate.toLocaleString(
+          'en-US',
+          dateFormatOptions
+        );
+
+        return `${todayOrDate} ${timeIn12HourFormat}`;
+      };
 
       const messages = document.getElementById('messages');
       const messagesArea = document.getElementById('chatMessagesArea');
       const form = document.getElementById('form');
       const input = document.getElementById('input');
 
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', function submitHandler(e) {
         e.preventDefault();
 
         const chatMessage = {
