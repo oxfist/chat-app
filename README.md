@@ -17,27 +17,29 @@
 
 En este proyecto te proponemos la creación de una aplicación de mensajería
 instantánea. Esta aplicación requerirá que las personas puedan registrarse e
-iniciar sesión para poder enviar mensajes a un canal de chat público y también
+iniciar sesión para poder enviar mensajes a un canal de chat general y también
 la creación de canales temáticos donde cada persona podrá ingresar por su
 cuenta.
 
 Para acercar este proyecto lo más posible a entornos profesionales le daremos
-gran importancia al desarrollo a través de Historias de Usuaria para definir
-alcance y prioridad de las funcionalidades que desarrollarás. Para esto te
-ayudaremos como coaches jugando el rol de _Product Owner_. Tendrás una base de
-historias para partir y en el proceso tendrás que seguir escribiendo tus propias
-historias.
+gran importancia al desarrollo a través de
+[Historias de Usuaria](https://www.atlassian.com/es/agile/project-management/user-stories)
+para definir alcance y prioridad de las funcionalidades que desarrollarás. Para
+esto te ayudaremos como coaches jugando el rol de _Product Owner_. Te
+entregaremos las primeras historias ya hechas, para que tengas una base para
+partir, y durante el proceso tendrás que seguir escribiendo tus propias
+historias para abarcar todas las funcionalidades.
 
-Para desarrollar las funcionalidades de un chat ocuparás la librería
-[Socket.io](https://socket.io), que te permitirá implementar _web sockets_ para
-mantener conexiones abiertas entre las personas que estén dentro del chat y el
-“servidor” que centralizará la comunicación, recibiendo los mensajes y
+Para implementar mensajes instantáneos en un chat ocuparás la librería
+[Socket.io](https://socket.io), que te permitirá ocupar _web sockets_ para
+mantener conexiones abiertas entre las personas que estén conectadas dentro del
+chat y el “servidor” que centralizará la comunicación, recibiendo los mensajes y
 enviándolos de nuevo a los “clientes”.
 
-Alojarás esta aplicación en la plataforma Heroku y construirás con
-[GitHub Actions](https://github.com/features/actions) tu propio _pipeline_ de
-Integración Continua y Despliegue Continuo (CI/CD) para automatizar el
-despliegue que hará que tu proyecto esté disponible a través de Internet para
+Alojarás esta aplicación en la plataforma [Heroku](https://www.heroku.com/) y
+construirás con [GitHub Actions](https://github.com/features/actions) tu propio
+_pipeline_ de Integración Continua y Entrega Continua (CI/CD) para automatizar
+el despliegue que hará que tu proyecto esté disponible a través de Internet para
 cualquier persona. Para almacenar los datos ocuparás la base de datos PostgreSQL
 en la versión que provee nativamente Heroku.
 
@@ -57,12 +59,32 @@ en la versión que provee nativamente Heroku.
 
 ### 4.1 Historias de Usuaria
 
-> 1. Descripción general de las historias como herramienta
-> 2. Importancia del enfoque iterativo plasmado en las historias
-> 3. Importancia de segmentar el trabajo en cada historia para que no sean
->    dependientes
-> 4. Mencionar que hay historias que vienen prehechas y el desarrollo del
->    proyecto contempla la creación de nuevas historias
+Las Historias de Usuaria actualmente son esenciales en el desarrollo de software
+ágil. En pocas palabras, son descripciones en texto de una funcionalidad de la
+aplicación en desarrollo, desde el punto de vista de quienes la ocuparán, las
+usuarias. Las utilizamos a lo largo de todo el proceso de desarrollo y vamos
+creando nuevas historias a medida que vamos aprendiendo sobre lo que es
+prioritario y lo que reporta mayor valor para nuestras usuarias.
+
+Existen varias formas o estructuras para escribir una historia. Durante este
+proyecto ocuparemos la fórmula _Persona + Necesidad + Propósito_ que captura a
+qué segmento de usuarios apunta, qué necesidad de aquellas personas satisface y
+el propósito que ellas tienen detrás de esa necesidad.
+
+Esta herramienta, aunque útil, no soluciona automáticamente todos los problemas.
+Es muy fácil caer en la trampa de intentar poner absolutamente todos los
+aspectos de una funcionalidad en una única historia y comprometernos con su
+desarrollo en un sprint de 1 o 2 semanas, para luego darnos cuenta que el
+trabajo requerido era mayor al esperado y terminar acarreando la misma historia
+en progreso sprint tras sprint.
+
+Para evitar historias muy grandes es importante aplicar un enfoque iterativo al
+escribirlas. Si es necesario podemos “romper” una historia grande en historias
+más pequeñas que comprendan incrementos de una misma funcionalidad. Por ejemplo,
+podemos implementar el inicio de sesión asumiendo que los datos siempre están
+correctos o haciendo las validaciones más críticas, y si queremos agregar poder
+recuperar contraseña, entoncws podemos tener una historia aparte que contemple
+solo eso.
 
 ### 4.2 El rol de _Product Owner_
 
