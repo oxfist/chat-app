@@ -72,9 +72,9 @@ Ocuparemos la fórmula _Persona + Necesidad + Propósito_ expresada en el
 siguiente ejemplo:
 
 ```text
-Yo como fanática de la música funk
-Quiero encontrar listas de reproducción de ese género musical
-Para descubrir artistas y bandas nuevas
+Yo como fanática de la música funk (Persona)
+Quiero encontrar listas de reproducción de ese género musical (Necesidad)
+Para descubrir artistas y bandas nuevas (Propósito)
 ```
 
 ### 4.2 El rol de _Product Owner_
