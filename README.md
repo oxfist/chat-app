@@ -35,6 +35,9 @@ mantener conexiones abiertas entre las personas que estén conectadas dentro del
 chat y el “servidor” que centralizará la comunicación, recibiendo los mensajes y
 enviándolos de nuevo a los “clientes”.
 
+Para construir la UI podrás ocupar uno de los siguientes _frameworks_: React,
+Vue o Angular.
+
 Alojarás esta aplicación en la plataforma [Heroku](https://www.heroku.com/) y
 construirás con [GitHub Actions](https://github.com/features/actions) tu propio
 _pipeline_ de Integración Continua y Entrega Continua (CI/CD) para automatizar
@@ -61,38 +64,39 @@ en la versión que provee nativamente Heroku.
 Las Historias de Usuaria actualmente son esenciales en el desarrollo de software
 ágil. En pocas palabras, son descripciones en texto de una funcionalidad de la
 aplicación en desarrollo, desde el punto de vista de quienes la ocuparán, las
-usuarias. Las utilizamos a lo largo de todo el proceso de desarrollo y vamos
-creando nuevas historias a medida que vamos aprendiendo sobre lo que es
-prioritario y lo que reporta mayor valor para nuestras usuarias.
+usuarias. Las usaremos a lo largo de todo el proceso de desarrollo e iremos
+creando nuevas historias a medida que vayamos aprendiendo sobre lo que es
+prioritario y lo que reporte mayor valor para nuestras usuarias.
 
-Existen varias formas o estructuras para escribir una historia. Durante este
-proyecto ocuparemos la fórmula _Persona + Necesidad + Propósito_ que captura a
-qué segmento de usuarios apunta, qué necesidad de aquellas personas satisface y
-el propósito que ellas tienen detrás de esa necesidad.
+Ocuparemos la fórmula _Persona + Necesidad + Propósito_ expresada en el
+siguiente ejemplo:
 
-Esta herramienta, aunque útil, no soluciona automáticamente todos los problemas.
-Es muy fácil caer en la trampa de intentar poner absolutamente todos los
-aspectos de una funcionalidad en una única historia y comprometernos con su
-desarrollo en un sprint de 1 o 2 semanas, para luego darnos cuenta que el
-trabajo requerido era mayor al esperado y terminar acarreando la misma historia
-en progreso sprint tras sprint.
-
-Para evitar historias muy grandes es importante aplicar un enfoque iterativo al
-escribirlas. Si es necesario podemos “romper” una historia grande en historias
-más pequeñas que comprendan incrementos de una misma funcionalidad. Por ejemplo,
-podemos implementar el inicio de sesión asumiendo que los datos siempre están
-correctos o haciendo las validaciones más críticas, y si queremos agregar poder
-recuperar contraseña, entoncws podemos tener una historia aparte que contemple
-solo eso.
+<pre>
+<b>Yo como</b> fanática de la música funk
+<b>Quiero</b> encontrar listas de reproducción de ese género musical
+<b>Para</b> descubrir artistas y bandas nuevas
+</pre>
 
 ### 4.2 El rol de _Product Owner_
 
-> 1. Rol de PO en equipos ágiles en general
-> 2. Mencionar que el rol PO no es "fijo" y sus responsabilidadese no son
->    "exclusivas"
-> 3. Mencionar la importancia de desarrollar estas habilidades
-> 4. Describir interacción que habrá con coach para cumplir rol de PO
-> 5. Mencionar importancia de negociación de alcance y prioridad
+El rol de _Product Owner_ (PO) se puede encontrar en los equipos ágiles que
+usualmente usan la metodología Scrum. Sin embargo, este rol ha trascendido al
+ecosistema ágil en general, independiente de la metodología. Este rol tiene la
+responsabilidad de maximizar el valor entregado por el equipo en el desarrollo
+de un producto. Esto suele implicar que esta persona tiene un mayor conocimiento
+del “negocio” (o _dominio_) y aporta al equipo dando prioridad a las historias
+que serán desarrolladas para entregar el mayor valor posible a los usuarios.
+
+Aunque este rol suele asumirlo de forma exclusiva una persona que no se
+involucra en el desarrollo, en la práctica sus responsabilidades no son ni
+fijas, ni exclusivas, y dependerá de la organización en que se encuentre el
+equipo.
+
+En este proyecto te apoyarás en una coach que jugará el rol de PO para ayudarte
+a priorizar, pero también a que tú y tu equipo puedan trabajar habilidades de
+priorización y enfoque de valor de negocio que cualquier desarrolladora debiera
+tener, así como también la negociación de prioridades y de alcance de las
+funcionalidades.
 
 ### 4.3 WebSockets
 
@@ -120,33 +124,13 @@ llamada “Plataforma como Servicio”, en inglés _Platform-as-a-Service_ (PaaS
 Estas plataformas permiten alojar aplicaciones para que nuestro trabajo quede
 disponible por Internet a cualquier persona.
 
-Una de las ventajas de Heroku, es la rapidez del proceso, pues detecta
-automáticamente algunas características de nuestro proyecto y nos evita tener
-que hacer muchas configuraciones de forma manual. Es posible tener una
-aplicación corriendo en Heroku ¡en menos de 5 minutos!
-
-Este tipo de tecnologías es muy importante actualmente en el desarrollo de
-aplicaciones, ya sea front-end, back-end o full-stack, puesto que automatizan
-una de las tareas esenciales del desarrollo de software: el _despliegue_. Le
-llamamos “desplegar” (hacer _deployment_) al acto de tomar el código de nuestra
-aplicación y moverlo a uno de estos servicios para que nuestros cambios más
-actuales queden disponibles para usuarios. Durante el bootcamp muchas veces
-hiciste esto con `firebase deploy` para desplegar los cambios a Firebase o
-quizás configurando tu repositorio para que el código se viera en
-[GitHub Pages](https://pages.github.com/).
-
-> TODO: Insertar diagrama localhost vs deployment
-
-Así como Firebase permitía guardar datos en su base de datos Firestore, Heroku
-permite conectar de forma nativa con otra base de datos, PostgreSQL (también
-llamada solo Postgres), una de las más conocidas y utilizadas en la industria.
-Usualmente configurar bases de datos puede llegar a ser una tarea compleja,
-especialmente si queremos configurarlas en los entornos de “producción”. Heroku
-simplifica todo este proceso con Postgres entregándonos los beneficios y
-ahorrándonos hacer muchas configuraciones.
+Por otro lado, PostgreSQL, o simplemente Postgres, es un motor de _base de datos
+relacional_. Estos tipos de bases de datos son ampliamente usados en la
+industria y Postgres es una de las más conocidas.
 
 Para el desarrollo de este proyecto trabajarás haciendo despliegues a Heroku y
-ocupando su servicio nativo de Postgres para persistir tus datos.
+ocupando su servicio nativo de Postgres para almacenar, o _persistir_, tus
+datos.
 
 ### 4.5 El _pipeline_ de Integración Continua
 
@@ -189,10 +173,7 @@ El _boilerplate_ contiene una estructura de archivos como punto de partida:
 ├── .gitignore
 ├── docker-composer.yml
 ├── project.yml
-├── README.md
-├── apache2
-├── html
-└── php-playground
+└── README.md
 ```
 
 ## 5. Criterios de aceptación mínimos del proyecto
@@ -215,7 +196,53 @@ _lines_ (_líneas_), y _branches_ (_ramas_) de tus componentes.
 
 ### 6.1 Historias de Usuaria
 
+Existen varias formas o estructuras para escribir una historia. Durante este
+proyecto ocuparemos la fórmula _Persona + Necesidad + Propósito_ que captura a
+qué segmento de usuarios apunta, qué necesidad de aquellas personas satisface y
+el propósito que ellas tienen detrás de esa necesidad.
+
+Esta herramienta, aunque útil, no soluciona automáticamente todos los problemas.
+Es muy fácil caer en la trampa de intentar poner absolutamente todos los
+aspectos de una funcionalidad en una única historia y comprometernos con su
+desarrollo en un sprint de 1 o 2 semanas, para luego darnos cuenta que el
+trabajo requerido era mayor al esperado y terminar acarreando la misma historia
+en progreso sprint tras sprint.
+
+Para evitar historias muy grandes es importante aplicar un enfoque iterativo al
+escribirlas. Si es necesario podemos “romper” una historia grande en historias
+más pequeñas que comprendan incrementos de una misma funcionalidad. Por ejemplo,
+podemos implementar el inicio de sesión asumiendo que los datos siempre están
+correctos o haciendo las validaciones más críticas, y si queremos agregar poder
+recuperar contraseña, entonces podemos tener una historia aparte que contemple
+solo eso.
+
 ### 6.2 Comunicación en tiempo real con Socket.io
+
+### 6.3 Despliegues a Heroku y persistencia con Postgres
+
+Una de las ventajas de Heroku, es la rapidez del proceso, pues detecta
+automáticamente algunas características de nuestro proyecto y nos evita tener
+que hacer muchas configuraciones de forma manual. Es posible tener una
+aplicación corriendo en Heroku ¡en menos de 5 minutos!
+
+Este tipo de tecnologías es muy importante actualmente en el desarrollo de
+aplicaciones, ya sea front-end, back-end o full-stack, puesto que automatizan
+una de las tareas esenciales del desarrollo de software: el _despliegue_. Le
+llamamos “desplegar” (hacer _deployment_) al acto de tomar el código de nuestra
+aplicación y moverlo a uno de estos servicios para que nuestros cambios más
+actuales queden disponibles para usuarios. Durante el bootcamp muchas veces
+hiciste esto con `firebase deploy` para desplegar los cambios a Firebase o
+quizás configurando tu repositorio para que el código se viera en
+[GitHub Pages](https://pages.github.com/).
+
+> TODO: Insertar diagrama localhost vs deployment
+
+Así como Firebase permitía guardar datos en su base de datos Firestore, Heroku
+permite conectar de forma nativa con Postgres. Usualmente configurar bases de
+datos puede llegar a ser una tarea compleja, especialmente si queremos
+configurarlas en los entornos de “producción”. Heroku simplifica todo este
+proceso con Postgres entregándonos los beneficios y ahorrándonos hacer muchas
+configuraciones.
 
 ### Otros recursos
 
