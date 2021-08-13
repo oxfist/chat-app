@@ -116,7 +116,7 @@ este tipo sin tener que hacer muchas cosas manualmente. Así, familiarizándote
 con ella podrás agregar la comunicación instantánea a tu aplicación sin muchas
 demoras y así podrás enfocarte en las funcionalidad más complejas.
 
-![Diagrama de comunicación bidireccional cliente-servidor](./docs/images/bidirectional-communication.png)
+![Diagrama de comunicación bidireccional cliente-servidor](./docs/images/comunicacion-bidireccional.png)
 
 ### 4.4 Heroku y Postgres
 
