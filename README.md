@@ -178,19 +178,57 @@ El _boilerplate_ contiene una estructura de archivos como punto de partida:
 
 ## 5. Criterios de aceptación mínimos del proyecto
 
-### 5.1 Desarrollo iterativo con Historia de Usuaria
+### 5.1 Comportamiento mínimo
 
-### 5.2 Despliegue automatizado con un _pipeline_ de CI
+Como mínimo tu proyecto debe permitir al usuario hacer lo siguiente:
 
-### 5.3 Persistencia de datos con una base de datos
+1. Escribir mensajes en un canal de chat general
+2. Ver mensajes enviados por otras personas en tiempo real
+3. Guardar el historial de mensajes enviados
+4. Registrarse en la aplicación
+5. Iniciar sesión para ingresar al chat
+6. Crear canales de chat al que puedan acceder otros usuarios
 
-### 5.4 Modularización del código
+### 5.2 Desarrollo iterativo con Historia de Usuaria y _Product Owner_
 
-### 5.5 Pruebas unitarias
+Deberás realizar el desarrollo a partir de Historias de Usuaria, partiendo de la
+base que te entregamos y luego escribiendo nuevas a medida que vayas
+progresando.
 
-Deberás incluir pruebas unitarias para el plugin que desarrolles hasta cubrir
-como mínimo el 70% de _statements_ (_sentencias_), _functions_ (_funciones_),
-_lines_ (_líneas_), y _branches_ (_ramas_) de tus componentes.
+Además deberás escoger a una de las coaches para que sea PO de tu equipo durante
+todo el proyecto. Te apoyarás en tu PO para definir y negociar prioridades y el
+alcance de cada historia. En esta persona también te apoyarás para escribir las
+historias.
+
+Como punto de partida, agenda una reunión de _kick-off_ con la coach que escojan
+para definir las prioridades del primer sprint.
+
+### 5.3 Despliegue automatizado con un _pipeline_ de CI/CD
+
+Deberás construir un _pipeline_ con GitHub Actions para desplegar tu aplicación
+a Heroku de forma automática con cada _push_ a la rama `main` solo después de
+que todas las pruebas han pasado con éxito.
+
+### 5.4 Persistencia de datos con una base de datos
+
+Deberás ocupar el servicio nativo de Postgres en Heroku para persistir los datos
+de tu aplicación.
+
+### 5.5 Modularización del código
+
+Como tendrás que ocupar una librería externa, Socket.io, será muy importante que
+esa integración se haga de forma ordenada. Para esto tendrás que definir una
+estructura de carpetas lógica y clara, y procurar _separar responsabilidades_.
+Cada script debiera tener solo una responsabilidad y exportar funciones que sean
+ocupadas por otros.
+
+### 5.6 Pruebas unitarias
+
+Deberás incluir pruebas unitarias para tu aplicación y testear aquellas partes
+más críticas de tu propio código. No vamos a testear que Socket.io funciona como
+debiera o que la base de datos efectivamente guarda los datos. Si necesitas
+testear una función que se integra con código no hecho por ti, puedes ocupar
+_test doubles_, a veces llamados simplemente _mocks_.
 
 ## 6. Pistas, tips y lecturas complementarias
 
