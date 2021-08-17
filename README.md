@@ -255,7 +255,7 @@ hiciste esto con `firebase deploy` para desplegar los cambios a Firebase o
 quizás configurando tu repositorio para que el código se viera en
 [GitHub Pages](https://pages.github.com/).
 
-![Representación de despliegue a entorno local y a la nube](./docs/images/localhost-vs-deployment.png)
+![Representación de despliegue a entorno local y a la nube](./docs/images/localhost-vs-deploymentv2.png)
 
 Así como Firebase permitía guardar datos en su base de datos Firestore, Heroku
 permite conectar de forma nativa con Postgres. Usualmente configurar bases de
