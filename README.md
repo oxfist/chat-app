@@ -181,11 +181,23 @@ El _boilerplate_ contiene una estructura de archivos como punto de partida:
 
 ```text
 .
+├── .eslintrc.json
 ├── .gitignore
-├── docker-composer.yml
-├── project.yml
+├── .prettierignore
+├── .prettierrc.json
+├── docs/
+├── setup/
+├── docker-compose.yml
+├── package.json
+├── proyect.yml
 └── README.md
 ```
+
+#### setup
+
+Esta carpeta contiene un punto de partida para tu aplicación, como las primeras
+historias de usuaria y la base para cuando construyas tu _pipeline_ con GitHub
+Actions.
 
 ## 5. Criterios de aceptación mínimos del proyecto
 
