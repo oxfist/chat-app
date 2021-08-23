@@ -338,6 +338,7 @@ Asegúrate de seguir los siguientes pasos:
    ```sh
    $ docker --version
    Docker version 20.10.8, build 3967b7d28e # <- Esto significa instalación exitosa
+
    $ docker-compose --version
    docker-compose version 1.29.2, build unknown # <- Esto significa instalación exitosa
    ```
@@ -362,8 +363,8 @@ Asegúrate de seguir los siguientes pasos:
 
    ![Inicio de sesión de pgAdmin](./docs/images/pgadmin-login.png)
 
-6. Además puedes verificar el estado y detener la ejecución local con los
-   siguientes comandos:
+6. Además puedes verificar el estado de la base de datos local y detener la
+   ejecución con los siguientes comandos:
 
    ```sh
    $ npm run db:status  # <- Verifica el estado de la base de datos local
