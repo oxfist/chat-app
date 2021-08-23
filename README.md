@@ -343,8 +343,9 @@ Asegúrate de seguir los siguientes pasos:
    docker-compose version 1.29.2, build unknown # <- Esto significa instalación exitosa
    ```
 
-4. Para iniciar la base de datos local, ejecuta `npm run db:up` y debieras
-   obtener una salida similar a la siguiente:
+4. Para iniciar la base de datos local, ejecuta `npm run db:up` y, luego de unas
+   descargas que se harán solo la primera vez, al final debieras obtener una
+   salida similar a la siguiente:
 
    ```sh
    $ npm run db:up
